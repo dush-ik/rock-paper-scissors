@@ -2,3 +2,32 @@ main {
   display: flex;
   justify-content: center;
 }
+
+dialog {
+  border: unset;
+}
+
+.plane {
+  display: flex;
+  margin-top: 10vh;
+}
+
+.rock {
+  margin: 0 auto;
+}
+
+.paper {
+  margin-right: 5vw;
+}
+
+.scissors {
+  margin-left: 5vw;
+}
+
+.lizard {
+  margin-right: 5vw;
+}
+
+.spock {
+  margin-left: 5vw;
+}

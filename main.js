@@ -13,6 +13,12 @@ const winningCombination = [
   ['spock', 'scissors']
 ];
 
+const includeGameAnimationHtml = () => {
+  fetch('./game-animation.html')
+    .then(resp => resp.text())
+    .then(htmlString => document.querySelector('dialog').innerHTML = htmlString);
+}
+
 const playerSelection = () => {
   const selected = prompt('Please choose Rock Paper Scissors Lizard Spock').toLocaleLowerCase();
   if (choices.includes(selected)) {
@@ -28,27 +34,28 @@ const computerSelection = () => {
 }
 
 (() => {
-  const playerSelected = playerSelection();
-  const computerSelected = computerSelection();
+  includeGameAnimationHtml();
+  // const playerSelected = playerSelection();
+  // const computerSelected = computerSelection();
 
-  if (playerSelected === computerSelected) {
-    alert('It`s a tie');
-    return
-  }
+  // if (playerSelected === computerSelected) {
+  //   alert('It`s a tie');
+  //   return
+  // }
 
-  const outcome = [playerSelected, computerSelected];
+  // const outcome = [playerSelected, computerSelected];
 
-  const outcomeIndex = winningCombination.reduce((acm, combination, index) => {
-    if (combination.every(value => outcome.includes(value))) {
-      acm = index;
-    }
-    return acm;
-  }, 0);
+  // const outcomeIndex = winningCombination.reduce((acm, combination, index) => {
+  //   if (combination.every(value => outcome.includes(value))) {
+  //     acm = index;
+  //   }
+  //   return acm;
+  // }, 0);
   
-  const winningOutcome = winningCombination[outcomeIndex];
-  if (playerSelected === winningOutcome[0]) {
-    alert(`You Win! ${winningOutcome[0]} beats ${winningOutcome[1]}`);
-  } else {
-    alert(`You Loose! ${winningOutcome[0]} beats ${winningOutcome[1]}`);
-  }
+  // const winningOutcome = winningCombination[outcomeIndex];
+  // if (playerSelected === winningOutcome[0]) {
+  //   alert(`You Win! ${winningOutcome[0]} beats ${winningOutcome[1]}`);
+  // } else {
+  //   alert(`You Loose! ${winningOutcome[0]} beats ${winningOutcome[1]}`);
+  // }
 })();
